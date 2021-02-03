@@ -8,8 +8,8 @@
         3 了解printf("HelloWord\n");system("pause")
 */
 
-#include <stdio.h>   // 含【printf("") -- 向标准输出设备输出格式化字符串】的头文件 -- 标准输入输出
-#include <windows.h> // 含【system("pause") -- 暂停命令】的头文件 -- window最重要的一个头文件
+#include <stdio.h>   // 预处理器命令;含【printf("") -- 向标准输出设备输出格式化字符串】的头文件 -- 标准输入输出
+#include <windows.h> // 预处理器命令;含【system("pause") -- 暂停命令】的头文件 -- window最重要的一个头文件
 /*
 这一句话是必须要的格式
 stdio 表示系统文件库, 也可以声明其它的
@@ -21,12 +21,16 @@ stdio 表示系统文件库, 也可以声明其它的
 */
 
 int main(void) // 程序的入口;void表示这个main函数不带参数，返回值，void也可不写;void -- 空
-{
+{              //程序从这里开始运行
+    /*
+    int 表示数字格式,返回一个数字
+    main()主函数 表示程序的入口  一个程序有且只能有一个main函数的存在
+    */
     printf("HelloWord\n");
     system("pause"); // 也可加getchar ();暂停。输入的字符被存放在键盘缓冲区中，直到用户按回车为止
 
-    return 0;
-}
+    return 0; //返回一个整数0,因为它是int类型,所以只能返回整数
+} //程序从这里结束
 
 /*
 输出结果：
