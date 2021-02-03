@@ -1,5 +1,5 @@
 # VS-Code-C
-/*总纲
+总纲:
     总目的和手段
         目的：   
             1 提高自学能力
@@ -7,27 +7,26 @@
         手段：
             1 规范学习，理清学习。规范做到总纲到细纲，多打备注
             2 主要自学，次要问人。自学主要看网课，如百度，B站和一些论坛
-*/
 
-/*00-start
+文件:README
     功能：
         记下学习那些事
     目的：
         1 搭建VS Code，方便理解本质，方便使用
-        2 作为思路模板，不断改进
-*/ 
+        2 作为思路模板，不断改进 
 
-/*搭建步骤
-    1 VS Code里面安装中文，c++插件
-    2 更改默认编码为GBK(或者默认UTF-8 -- 国际兼容好) -- 文件->首选项->设置->搜索设置->encoding->Files：Encoding -> gbk -- 防止出现乱码
-    2 下载，安装64位MinGW编译器 -- 目前windows下调试仅支持 Cygwin 和 MinGW。看大部分帖子均推荐使用MinGW
-    3 配置mingw-w64环境变量，找到安装后的路径，找到并打开bin文件夹，复制路径。在桌面找到我的电脑图标->右键->属性->高级系统设置->选择“高级”选项->选择下面“环境变量”->Administrator 的用户变量，在path中新增安装mingw-w64的路径
-    4 验证mingw-w64是否安装配置成功，win+r后输入cmd后输入gcc -v，有WinGW-W64字样安装成功
-    5 按《使用 VS Code 搭建轻量美观的 C/C++开发环境》修改和了解VS Code的配置文件
-*/
+内容:
+    搭建步骤
+        1 VS Code里面安装中文，c++插件
+        2 默认编码为UTF-8 -- 国际兼容好(或者用GBK -- 在中国内用数据小 -- 文件->首选项->设置->搜索设置->encoding->Files：Encoding -> gbk -- 防止出现乱码)
+        2 下载，安装64位MinGW编译器 -- 目前windows下调试仅支持 Cygwin 和 MinGW。看大部分帖子均推荐使用MinGW
+        3 配置mingw-w64环境变量，找到安装后的路径，找到并打开bin文件夹，复制路径。在桌面找到我的电脑图标->右键->属性->高级系统设置->选择“高级”选项->选择下面“环境变量”->Administrator 的用户变量，在path中新增安装mingw-w64的路径
+        4 验证mingw-w64是否安装配置成功，win+r后输入cmd后输入gcc -v，有WinGW-W64字样安装成功
+        5 按《使用 VS Code 搭建轻量美观的 C/C++开发环境》修改和了解VS Code的配置文件
 
-/*launch.json配置文件  
-{   
+附件1:
+launch.json配置文件  
+{
     // 使用 IntelliSense 了解相关属性。 
     // 悬停以查看现有属性的描述。
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
@@ -57,9 +56,9 @@
         }
     ]
 }
-*/
 
-/*task.json配置文件
+附件2:
+task.json配置文件
 {
 	"version": "2.0.0",
 	"tasks": [
@@ -74,7 +73,7 @@
 				"${fileDirname}\\${fileBasenameNoExtension}.exe",
 				// "-Wall", // 开启额外警告
 				// "-static-libgcc",     // 静态链接libgcc，一般都会加上
-				// "-fexec-charset=GBK", // 生成的程序使用GBK编码，不加这条会导致Win下输出中文乱码；繁体系统改成BIG5
+				"-fexec-charset=UTF-8", // 生成的程序使用UTF-8编码；为防止Win下输出中文乱码，应改成当前系统用的编码(VS Code内置终端只能使用UTF-8编码，用内置终端时应改成utf-8)；简体系统改成GBK；繁体系统改成BIG5；国际一般UTF-8；
 				// "-std=c11", // 要用的语言标准，根据自己的需要修改。c++可用c++14
 			],
 			"options": {
@@ -88,12 +87,11 @@
 		}
 	]
 }
-*/
 
-/*备注
+备注:
     《使用 VS Code 搭建轻量美观的 C/C++开发环境》 -- https://www.bilibili.com/video/BV1sW411v7VZ
     《VSCode安装，配置，编译运行C++（详细整理）》 -- https://www.jianshu.com/p/febbf1e975b6
     《郝斌C语言自学教程》 -- https://www.bilibili.com/video/BV1os411h77o?p=1
-*/
+    《C 语言教程 | 菜鸟教程》 -- https://www.runoob.com/cprogramming/c-tutorial.html
 
-// 2021年1月10号12点00分
+2021年1月10号12点00分
