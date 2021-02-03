@@ -12,7 +12,7 @@
 				"${fileDirname}\\${fileBasenameNoExtension}.exe",
 				// "-Wall", // 开启额外警告
 				// "-static-libgcc",     // 静态链接libgcc，一般都会加上
-				"-fexec-charset=UTF-8", // 生成的程序使用UTF-8编码；为防止Win下输出中文乱码，应改成当前系统用的编码(VS Code内置终端只能使用UTF-8编码，用内置终端时应改成utf-8)；简体系统改成GBK；繁体系统改成BIG5；国际一般UTF-8；
+				"-fexec-charset=UTF-8", // 生成的程序使用UTF-8编码；为防止Win下输出中文乱码，应改成当前系统用的编码(VS Code内置终端只能使用UTF-8编码，用内置终端时应改成utf-8)；简体系统改成GBK；繁体系统改成BIG5；国际一般UTF-8
 				// "-std=c11", // 要用的语言标准，根据自己的需要修改。c++可用c++14
 			],
 			"options": {

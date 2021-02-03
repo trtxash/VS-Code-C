@@ -11,18 +11,18 @@
         6 了解关系运算符
 */
 
-#include <math.h> // 含【sqrt(delta) -- 开平方根】的头文件 -- 各种数学函数和一个宏；
+#include <math.h> // 含【sqrt(delta) -- 开平方根】的头文件 -- 各种数学函数和一个宏
 #include <stdio.h>
 #include <windows.h>
 
 int main(void)
 {
     /*
-    十六进制的666 -- 0x666；八进制的666 -- 0666；浮点数的6.66 -- 666e-2;
-    int -- 整型 -- 4bytes；short int -- 短整型 -- 2bytes；long int -- 长整型 -- 8bytes；float -- 单精度浮点数 -- 4bytes；double -- 双精度浮点数 -- 8bytes;
-    float a = 1F,1看作float数据；
+    十六进制的666 -- 0x666；八进制的666 -- 0666；浮点数的6.66 -- 666e-2
+    int -- 整型 -- 4bytes；short int -- 短整型 -- 2bytes；long int -- 长整型 -- 8bytes；float -- 单精度浮点数 -- 4bytes；double -- 双精度浮点数 -- 8bytes
+    float a = 1F,1看作float数据
     */
-    double a = 1; // 定义变量a，将1赋值a；变量定义后在后面需要初始化；
+    double a = 1; // 定义变量a，将1赋值a；变量定义后在后面需要初始化
     double b = 5;
     double c = 6;
     double delta;
@@ -31,16 +31,16 @@ int main(void)
 
     delta = b * b - 4 * a * c;
 
-    if (delta > 0) // 关系运算符： > < == != >= <=; -- 满足为1，不满足为0；
+    if (delta > 0) // 关系运算符： > < == != >= <=; -- 满足为1，不满足为0
     {
         X1 = (-b + sqrt(delta)) / (2 * a);
         X2 = (-b - sqrt(delta)) / (2 * a);
-        printf("X1 = %lf,X2 = %lf\n", X1, X2); // printf("字符串")，printf("输出控制符"，输出参数)；printf("输出控制符1 输出控制符2"，输出参数1，输出参数2)；
+        printf("X1 = %lf,X2 = %lf\n", X1, X2); // printf("字符串")，printf("输出控制符"，输出参数)；printf("输出控制符1 输出控制符2"，输出参数1，输出参数2)
         /*
-        %d -- 整型输出，%ld -- 长整型输出,%f -- 用来输出单精度浮点数，%lf -- 双精度浮点数，默认情况下保留小数点6位,%.100f -- 保留小数点100位;
-        %o -- 八进制输出，%x -- 十六进制输出，结果小写，%X -- 十六进制输出，结果大写；%#x || %#X -- 十六进制输出，结果带前缀；
-        %c -- 字符输出；
-        \n -- 换行；
+        %d -- 整型输出，%ld -- 长整型输出,%f -- 用来输出单精度浮点数，%lf -- 双精度浮点数，默认情况下保留小数点6位,%.100f -- 保留小数点100位
+        %o -- 八进制输出，%x -- 十六进制输出，结果小写，%X -- 十六进制输出，结果大写；%#x || %#X -- 十六进制输出，结果带前缀
+        %c -- 字符输出
+        \n -- 换行
         */
         system("pause");
     }

@@ -15,7 +15,7 @@ int main(void)
     printf("请输入你的成绩\n");
     scanf("%f", &score);
 
-    if (score > 150) // if只管最近的一行代码，加大括号框想管的代码；
+    if (score > 150) // if只管最近的一行代码，加大括号框想管的代码
     {
         printf("你在做白日梦！\n");
     }

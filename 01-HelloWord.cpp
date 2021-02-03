@@ -5,11 +5,11 @@
     目的：
         1 了解C基本格式
         2 了解头文件，利用头文件
-        3 了解printf("HelloWord\n");system("pause");
+        3 了解printf("HelloWord\n");system("pause")
 */
 
-#include <stdio.h>   // 含【printf("") -- 向标准输出设备输出格式化字符串】的头文件 -- 标准输入输出；
-#include <windows.h> // 含【system("pause") -- 暂停命令】的头文件 -- window最重要的一个头文件；
+#include <stdio.h>   // 含【printf("") -- 向标准输出设备输出格式化字符串】的头文件 -- 标准输入输出
+#include <windows.h> // 含【system("pause") -- 暂停命令】的头文件 -- window最重要的一个头文件
 /*
 这一句话是必须要的格式
 stdio 表示系统文件库, 也可以声明其它的
@@ -20,10 +20,10 @@ stdio 表示系统文件库, 也可以声明其它的
 如果写成" "并且自定义的库里面没有这个文件系统会自动查找自带的库,如果还是没有报错
 */
 
-int main(void) // 表示这个main函数不带参数，返回值，void -- 空；
+int main(void) // 程序的入口;void表示这个main函数不带参数，返回值，void也可不写;void -- 空
 {
     printf("HelloWord\n");
-    system("pause"); // 也可加getchar ();暂停。输入的字符被存放在键盘缓冲区中，直到用户按回车为止。
+    system("pause"); // 也可加getchar ();暂停。输入的字符被存放在键盘缓冲区中，直到用户按回车为止
 
     return 0;
 }
