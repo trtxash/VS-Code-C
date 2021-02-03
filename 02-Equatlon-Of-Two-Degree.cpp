@@ -16,22 +16,22 @@ int main(void)
 {
     /*
     整数类型
-    char            -- 1 byte
-    unsigned char   -- 1 byte
-    signed char     -- 1 byte
-    int             -- 2 or 4 bytes
-    unsigned int    -- 2 or 4 bytes
-    short           -- 2 bytes
-    unsigned short  -- 2 bytes
-    long            -- 4 bytes
-    unsigned long   -- 4 bytes
+        char            -- 1 byte
+        unsigned char   -- 1 byte
+        signed char     -- 1 byte
+        int             -- 2 or 4 bytes
+        unsigned int    -- 2 or 4 bytes
+        short           -- 2 bytes
+        unsigned short  -- 2 bytes
+        long            -- 4 bytes
+        unsigned long   -- 4 bytes
     
     浮点类型
-    float       -- 4 bytes  -- 6 位小数
-    double      -- 8 bytes  -- 15 位小数
-    long double -- 16 bytes -- 19 位小数
+        float           -- 4 bytes      -- 6 位小数
+        double          -- 8 bytes      -- 15 位小数
+        long double     -- 16 bytes     -- 19 位小数
     
-    float a = 1F,1看作float数据
+            float a = 1F,1看作float数据
     
     基本类型书写
         整数
@@ -48,8 +48,8 @@ int main(void)
             用英文的双引号引起来 可以保存多个字符"abc"
     
     科学计数法
-        1.03乘10的9次方   --   1.03E+09  --   1.03e09 -- 1.03e+9
-        1.03乘10的-9次方  --   1.03E-09  --   1.03e-9
+        1.03乘10的9次方   --   1.03E+09   --   1.03e09 -- 1.03e+9
+        1.03乘10的-9次方  --   1.03E-09   --   1.03e-9
     */
 
     double a = 1; // 定义变量a，将1赋值a；变量定义后在后面需要初始化
