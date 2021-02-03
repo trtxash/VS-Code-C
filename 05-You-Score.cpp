@@ -13,7 +13,7 @@ int main(void)
     float score;
 
     printf("请输入你的成绩\n");
-    scanf("%f",&score);
+    scanf("%f", &score);
 
     if (score > 150) // if只管最近的一行代码，加大括号框想管的代码；
     {
@@ -29,9 +29,9 @@ int main(void)
     }
     else if (score < 120 && score >= 90)
     {
-        printf("及格了！");  
+        printf("及格了！");
     }
-    else if (score < 90 && score >=0)
+    else if (score < 90 && score >= 0)
     {
         printf("不及格，下此努力！");
     }
