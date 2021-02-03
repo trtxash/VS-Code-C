@@ -25,6 +25,19 @@
         5 可安装git -- 版本控制，你的代码多版本，方便修改代码，还可一起使用GitHub网站上传下载代码
 
 附件1:
+settings.json配置文件
+{
+    "window.zoomLevel": 0, // 窗口缩放级别
+    "files.autoSave": "onFocusChange", // 自动保存
+    "editor.tabCompletion": "on", // tab补选
+    "C_Cpp.clang_format_sortIncludes": true, // 格式化时调整include的排序
+    "files.encoding": "utf8", // 文件默认编码(为防止Win下输出中文乱码，应改成当前系统用的编码(VS Code内置终端只能使用UTF-8编码，用内置终端时应改成utf-8)；简体系统改成GBK；繁体系统改成BIG5；国际一般UTF-8)
+    "C_Cpp.updateChannel": "Insiders",
+    "git.autofetch": true,
+    "explorer.confirmDelete": false,
+}
+
+附件2:
 launch.json配置文件  
 {
     // 使用 IntelliSense 了解相关属性。 
@@ -57,7 +70,7 @@ launch.json配置文件
     ]
 }
 
-附件2:
+附件3:
 task.json配置文件
 {
 	"version": "2.0.0",
