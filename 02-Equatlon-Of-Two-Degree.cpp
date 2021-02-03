@@ -52,7 +52,7 @@ int main(void)
         1.03乘10的-9次方  --   1.03E-09   --   1.03e-9
     */
     double a = 1; // 定义变量a，将1赋值a；变量定义后在后面需要初始化
-    double b = 5;
+    double b = 5; // 命名的第一个字符必须是字母或者下划线,例如合法的命名:name_123; name123_; _name123; _123name,不能以数字开头,不能包含除字母,下划线,数字以外的其他字符
     double c = 6;
     double delta;
     double X1;
