@@ -3,7 +3,7 @@
     功能：
         给abc赋3个值，计算出一元二次方程的解
     目的：
-        1 了解基本数据类型,了解整型数(整型),浮点数(实型),char(字符型)；记住BODH，记住八进制，十六进制数的写法;知道计算机的科学计数法
+        1 了解基本数据类型,了解整型数(整型),浮点数(实型),char(字符型)
         2 学会printf的用法，会整型数，浮点数，字符的输出
         3 了解关系运算符
 */
@@ -19,8 +19,8 @@ int main(void)
         char            -- 1 byte
         unsigned char   -- 1 byte
         signed char     -- 1 byte
-        int             -- 2 or 4 bytes
-        unsigned int    -- 2 or 4 bytes
+        int             -- 2 or 4 bytes -- windows10为4 bytes -- 利用sizeof : printf("int 存储大小 : %lu \n", sizeof(int));
+        unsigned int    -- 2 or 4 bytes -- windows10为4 bytes -- 利用sizeof : printf("unsigned int 存储大小 : %lu \n", sizeof(unsigned int));
         short           -- 2 bytes
         unsigned short  -- 2 bytes
         long            -- 4 bytes
@@ -35,24 +35,6 @@ int main(void)
     
     char型 -- 字符型
         用来表示各种字符,与ascii码表一一对应;除可以用来表示各类字符外,char型的其它规则与整型相同,可以认为char是一种特殊的整型
-
-    基本类型书写
-        整数
-            默认为10进制 ,10 ，20
-            以0开头为8进制,045，021
-            以0b开头为2进制,0b11101101
-            以0x开头为16进制,0x21458adf
-        小数
-            单精度常量:2.3f
-            双精度常量:2.3 -- 默认为双精度
-        字符型常量
-            用英文单引号括起来,只保存一个字符'a'、'b' 、'*' ,还有转义字符 '\n' 、'\t'
-        字符串常量
-            用英文的双引号引起来 可以保存多个字符"abc"
-    
-    科学计数法
-        1.03乘10的9次方   --   1.03E+09   --   1.03e09 -- 1.03e+9
-        1.03乘10的-9次方  --   1.03E-09   --   1.03e-9
     */
     double a = 1; // 定义变量a，将1赋值a；变量定义后在后面需要初始化
     double b = 5; // 命名的第一个字符必须是字母或者下划线,例如合法的命名:name_123; name123_; _name123; _123name,不能以数字开头,不能包含除字母,下划线,数字以外的其他字符
