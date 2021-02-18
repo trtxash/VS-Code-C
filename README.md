@@ -1,32 +1,33 @@
 # VS-Code-C
-总纲:
-    总目的和手段
-        目的：   
-            1 提高自学能力
-            2 掌握C语言
-        手段：
-            1 规范学习,理清学习;规范做到总纲到细纲,多打备注
-            2 主要自学,次要问人;自学主要看网课,如百度,B站和一些论坛
+# 总纲
 
-文件:README
+    目的：   
+        1. 提高自学能力
+        2. 掌握C语言
+    手段：
+        1. 规范学习,理清学习;规范做到总纲到细纲,多打备注
+        2. 主要自学,次要问人;自学主要看网课,如百度,B站和一些论坛
+
+# 文件:README
     功能：
-        记下学习那些事
+        1. 记下学习那些事
     目的：
-        1 搭建VS Code,方便理解本质,方便使用
-        2 作为思路模板,不断改进;
+        1. 搭建VS Code,方便理解本质,方便使用
+        2. 作为思路模板,不断改进;
 
-内容:
-    搭建步骤
-        1 VS Code里面安装中文,c++插件
-        2 文件->首选项->设置->搜索设置->encoding->Files：Encoding -> gbk;为防止Win下输出中文乱码,应改成当前系统用的编码(VS Code内置终端只能使用UTF-8编码，用内置终端时应改成utf-8);简体系统改成GBK;繁体系统改成BIG5;国际一般UTF-8
-        2 下载,安装64位MinGW编译器 -- 目前windows下调试仅支持 Cygwin 和 MinGW,看大部分帖子均推荐使用MinGW
-        3 配置mingw-w64环境变量,找到安装后的路径,找到并打开bin文件夹,复制路径;在桌面找到我的电脑图标->右键->属性->高级系统设置->选择"高级"选项->选择下面"环境变量"->Administrator 的用户变量,在path中新增安装mingw-w64的路径;验证mingw-w64是否安装配置成功,win+r后输入cmd后输入gcc -v,有WinGW-W64字样安装成功
-        4 按<使用 VS Code 搭建轻量美观的 C/C++开发环境>修改和了解VS Code的配置文件,附件为自用配置文件
-        5 可安装git -- 版本控制,你的代码多版本,方便修改代码,还可一起使用GitHub网站上传下载代码
-        6 开启设置同步，妈妈再也不用担心我的设置了
+## 搭建步骤
+1. VS Code里面安装中文,c++插件
+2. 文件->首选项->设置->搜索设置->encoding->Files：Encoding -> gbk;为防止Win下输出中文乱码,应改成当前系统用的编码(VS Code内置终端只能使用UTF-8编码，用内置终端时应改成utf-8);简体系统改成GBK;繁体系统改成BIG5;国际一般UTF-8
+3. 下载,安装64位MinGW编译器 -- 目前windows下调试仅支持 Cygwin 和 MinGW,看大部分帖子均推荐使用MinGW
+4. 配置mingw-w64环境变量,找到安装后的路径,找到并打开bin文件夹,复制路径;在桌面找到我的电脑图标->右键->属性->高级系统设置->选择"高级"选项->选择下面"环境变量"->Administrator 的用户变量,在path中新增安装mingw-w64的路径;验证mingw-w64是否安装配置成功,win+r后输入cmd后输入gcc -v,有WinGW-W64字样安装成功
+5. 按[<使用 VS Code 搭建轻量美观的 C/C++开发环境>](https://www.bilibili.com/video/BV1sW411v7VZ)修改和了解VS Code的配置文件,附件为自用配置文件
+6. 可安装git -- 版本控制,你的代码多版本,方便修改代码,还可一起使用GitHub网站上传下载代码
+7. 开启设置同步，妈妈再也不用担心我的设置了
 
-附件1:
-settings.json配置文件
+---
+
+> settings.json配置文件
+```
 {
     "window.zoomLevel": 0, // 窗口缩放级别
     "files.autoSave": "onFocusChange", // 自动保存
@@ -37,9 +38,12 @@ settings.json配置文件
     "git.autofetch": true,
     "explorer.confirmDelete": false,
 }
+```
 
-附件2:
-launch.json配置文件  
+---
+
+> launch.json配置文件  
+```
 {
     /*
     使用 IntelliSense 了解相关属性。 
@@ -72,9 +76,12 @@ launch.json配置文件
         }
     ]
 }
+```
 
-附件3:
-task.json配置文件
+---
+
+> task.json配置文件
+```
 {
 	"version": "2.0.0",
 	"tasks": [
@@ -103,11 +110,16 @@ task.json配置文件
 		}
 	]
 }
+```
 
-备注:
-    使用 VS Code 搭建轻量美观的 C/C++开发环境 -- https://www.bilibili.com/video/BV1sW411v7VZ
-    VSCode安装，配置，编译运行C++(详细整理)   -- https://www.jianshu.com/p/febbf1e975b6
-    郝斌C语言自学教程                        -- https://www.bilibili.com/video/BV1os411h77o?p=1
-    C 语言教程 | 菜鸟教程                    -- https://www.runoob.com/cprogramming/c-tutorial.html
+---
+
+### 备注
++ [使用 VS Code 搭建轻量美观的 C/C++开发环境](https://www.bilibili.com/video/BV1sW411v7VZ)
++ [VSCode安装，配置，编译运行C++(详细整理)](https://www.jianshu.com/p/febbf1e975b6)
++ [郝斌C语言自学教程](https://www.bilibili.com/video/BV1os411h77o?p=1)
++ [C 语言教程 | 菜鸟教程](https://www.runoob.com/cprogramming/c-tutorial.html)
+
+---
 
 2021年1月10号12点00分
