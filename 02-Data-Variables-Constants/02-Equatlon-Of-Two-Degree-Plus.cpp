@@ -1,5 +1,5 @@
 /*
-03-Equatlon-Of-Two-Degree-Plus
+02-Equatlon-Of-Two-Degree-Plus
     功能：
         用户赋给abc三个值，计算一元二次方程
     目的：

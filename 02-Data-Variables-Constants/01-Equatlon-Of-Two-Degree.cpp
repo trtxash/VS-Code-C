@@ -1,5 +1,5 @@
 /*
-02-Equatlon-Of-Two-Degree
+01-Equatlon-Of-Two-Degree
     功能：
         给abc赋3个值，计算出一元二次方程的解
     目的：

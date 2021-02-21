@@ -1,5 +1,5 @@
 /*
-05-You-Score
+01-You-Score
     功能：
         输入你的成绩，给你一个回复
     目的：
@@ -11,7 +11,16 @@
 #include <windows.h>
 
 int main(void)
-{
+{   /*
+    if(boolean_expression)
+    {
+        // 如果布尔表达式为真将执行的语句
+    }
+    else
+    {
+        // 如果布尔表达式为假将执行的语句
+    }
+    */
     float score;
 
     printf("请输入你的成绩\n");
