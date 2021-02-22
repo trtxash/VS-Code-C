@@ -15,7 +15,7 @@ int main(void)
     int y = 0;
     int z = 0;
     printf("下面是for循环\n");
-    for (; x <= 1000000000; z = x, x += y, y = z)
+    for (; x <= 1000000000; z = x, x += y, y = z) // 空缺为真
     {
         printf("%d\n", x); // 输出: 1 1 2 3 5 ...的1
         // z = x;              保存x的值
