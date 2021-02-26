@@ -14,6 +14,7 @@ int main(void)
     int x = 1;
     int y = 0;
     int z = 0;
+    
     printf("下面是for循环\n");
     for (; x <= 1000000000; z = x, x += y, y = z) // 空缺为真
     {
