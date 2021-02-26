@@ -34,7 +34,7 @@ int main(void)
 }
 
 /* 函数返回两个数中较大的那个数 */
-int max(int num1, int num2)
+int max(int num1, int num2) // 函数类型为int,如果有调用这个函数,返回result的值则为int类型值
 {
     /* 局部变量声明 */
     int result;
@@ -44,7 +44,7 @@ int max(int num1, int num2)
     else
         result = num2;
 
-    return result; // 返回result的值,如果有调用这个函数,则为这个值
+    return result; // 返回result的值,类型以函数类型为准
 }
 
 /*输出结果
