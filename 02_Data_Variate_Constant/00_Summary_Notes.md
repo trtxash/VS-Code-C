@@ -68,6 +68,25 @@
 
 ---
 
+## 转义字符 意义ASCII码值(十进制)
+
+\a 响铃(BEL) 007  
+\b 退格bai(BS) 008  
+\f 换页(FF) 012  
+\n 换行(LF) 010  
+\r 回车(CR) 013  
+\t 水平du制表(HT) 009  
+\v 垂直zhi制表(VT) 011  
+\\\ 反斜杠 092  
+\\? 问号字dao符 063  
+\\' 单引号字符 039  
+\\" 双引zhuan号字符 034  
+\0 空字符(NULL) 000  
+\ddd 任意字符 三位八进制  
+\xhh 任意字符 二位十六进制  
+
+---
+
 ### 备注
 + [C 数据类型](https://www.runoob.com/cprogramming/c-data-types.html)
 
