@@ -26,6 +26,8 @@ int main(void)
             输出参数1,
             输出参数2,
             输出参数3);
+    
+    printf不检查符号,如不用printf则有隐式类型转换
     */
     printf(
         "下面是加减乘除\n"
