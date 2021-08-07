@@ -24,6 +24,12 @@
 6. 可安装git -- 版本控制,你的代码多版本,方便修改代码,还可一起使用GitHub网站上传下载代码
 7. 开启设置同步，妈妈再也不用担心我的设置了
 
+## git配置
+1. 设置git的user name和email
+2. 检查是否存在SSH Key
+3. 获取SSH Key
+4. GitHub添加SSH Key
+5. 验证和修改
 ---
 
 > settings.json配置文件
