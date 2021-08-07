@@ -24,12 +24,61 @@
 6. 可安装git -- 版本控制,你的代码多版本,方便修改代码,还可一起使用GitHub网站上传下载代码
 7. 开启设置同步，妈妈再也不用担心我的设置了
 
-## git配置
+### git配置
 1. 设置git的user name和email
+```
+如果你是第一次使用，或者还没有配置过的话需要操作一下命令，自行替换相应字段。
+
+git config --global user.name "Luke.Deng"
+git config --global user.email  "xiangshuo1992@gmail.com"
+```
+
 2. 检查是否存在SSH Key
+```
+cd ~/.ssh
+ls
+或者
+ll
+//看是否存在 id_rsa 和 id_rsa.pub文件，如果存在，说明已经有SSH Key
+```
+如果没有SSH Key，则需要先生成一下
+```
+ssh-keygen -t rsa -C "xiangshuo1992@gmail.com"
+```
+执行之后继续执行以下命令来获取SSH Key
+```
+cd ~/.ssh
+ls
+或者
+ll
+//看是否存在 id_rsa 和 id_rsa.pub文件，如果存在，说明已经有SSH Key
+```
+
 3. 获取SSH Key
+```
+cat id_rsa.pub
+//拷贝秘钥 ssh-rsa开头
+```
+
 4. GitHub添加SSH Key
+```
+GitHub点击用户头像，选择setting
+新建一个SSH Key
+取个名字，把之前拷贝的秘钥复制进去，添加就好啦。
+```
+
 5. 验证和修改
+测试是否成功配置SSH Key
+```
+ssh -T git@github.com
+//运行结果出现类似如下
+//Hi xiangshuo1992! You've successfully authenticated, but GitHub does not provide shell access.
+```
+之前已经是https的链接，现在想要用SSH提交怎么办？
+直接修改项目目录下 .git文件夹下的config文件，将地址修改一下就好了。
+
+```
+
 ---
 
 > settings.json配置文件
@@ -125,6 +174,7 @@
 + [VSCode安装，配置，编译运行C++(详细整理)](https://www.jianshu.com/p/febbf1e975b6)
 + [郝斌C语言自学教程](https://www.bilibili.com/video/BV1os411h77o?p=1)
 + [C 语言教程 | 菜鸟教程](https://www.runoob.com/cprogramming/c-tutorial.html)
++ [GitHub如何配置SSH Key](https://blog.csdn.net/u013778905/article/details/83501204)
 
 ---
 
