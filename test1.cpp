@@ -6,5 +6,5 @@ int main(void)
     char x;
     scanf("%c", &x);
     x = x + 32;
-    printf("%c", x); // 测试
+    printf("%c", x);
 }
