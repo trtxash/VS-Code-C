@@ -73,10 +73,10 @@ GitHub点击用户头像，选择setting
 ssh -T git@github.com
 //运行结果出现类似如下
 //Hi xiangshuo1992! You've successfully authenticated, but GitHub does not provide shell access.
-```
-之前已经是https的链接，现在想要用SSH提交怎么办？
-直接修改项目目录下 .git文件夹下的config文件，将地址修改一下就好了。
 
+之前已经是https的链接，现在想要用SSH提交怎么办？
+
+直接修改项目目录下 .git文件夹下的config文件，将地址修改一下就好了
 ```
 
 ---
@@ -178,4 +178,4 @@ ssh -T git@github.com
 
 ---
 
-2021年1月10号12点00分
+创于:2021年1月10号12点00分
