@@ -4,5 +4,5 @@ int main()
 {
     int a;
     a = 10/2;
-    printf("%f",a); // 测试
+    printf("%f",a);
 }
