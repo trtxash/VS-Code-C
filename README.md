@@ -29,8 +29,8 @@
 ```
 如果你是第一次使用，或者还没有配置过的话需要操作一下命令，自行替换相应字段。
 
-git config --global user.name "Luke.Deng"
-git config --global user.email  "xiangshuo1992@gmail.com"
+git config --global user.name "yourname"
+git config --global user.email  "youremail"
 ```
 
 2. 检查是否存在SSH Key
@@ -43,7 +43,7 @@ ll
 ```
 如果没有SSH Key，则需要先生成一下
 ```
-ssh-keygen -t rsa -C "xiangshuo1992@gmail.com"
+ssh-keygen -t rsa -C "youremail"
 ```
 执行之后继续执行以下命令来获取SSH Key
 ```
@@ -72,7 +72,7 @@ GitHub点击用户头像，选择setting
 ```
 ssh -T git@github.com
 //运行结果出现类似如下
-//Hi xiangshuo1992! You've successfully authenticated, but GitHub does not provide shell access.
+//Hi yourname! You've successfully authenticated, but GitHub does not provide shell access.
 
 之前已经是https的链接，现在想要用SSH提交怎么办？
 
