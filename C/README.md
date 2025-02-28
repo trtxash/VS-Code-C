@@ -1,9 +1,10 @@
-# VS-Code-C++
+# VS-Code-C
+
 # 总纲
 
     目的：   
         1. 提高自学能力
-        2. 掌握C++语言
+        2. 掌握C语言
     手段：
         1. 规范学习,理清学习;规范做到总纲到细纲,多打备注
         2. 主要自学,次要问人;自学主要看网课,如百度,B站和一些论坛
@@ -18,13 +19,66 @@
 ## 搭建步骤
 1. VS Code里面安装中文,c++插件
 2. 可选 -- 文件->首选项->设置->搜索设置->encoding->Files：Encoding -> gbk;为防止Win下输出中文乱码,应改成当前系统用的编码(VS Code内置终端只能使用UTF-8编码，用内置终端时应改成utf-8);简体系统改成GBK;繁体系统改成BIG5;国际一般UTF-8
-3. 下载,安装64位MinGW编译器(64位系统安装选项选x86_64) -- 目前windows下调试仅支持 Cygwin 和 MinGW,看大部分帖子均推荐使用MinGW,版本选择和其他参考:  
-[<MinGW-w64的安装详细步骤(c/c++的编译器gcc、g++的windows版，win10、win11真实可用)>](https://blog.csdn.net/qq_44918090/article/details/132190274)  
-[<Differences between msvcrt, ucrt and vcruntime libraries>](https://stackoverflow.com/questions/67848972/differences-between-msvcrt-ucrt-and-vcruntime-libraries)  
+3. 下载,安装64位MinGW编译器(64位系统安装选项选x86_64) -- 目前windows下调试仅支持 Cygwin 和 MinGW,看大部分帖子均推荐使用MinGW
 4. 配置mingw-w64环境变量,找到安装后的路径,找到并打开bin文件夹,复制路径;在桌面找到我的电脑图标->右键->属性->高级系统设置->选择"高级"选项->选择下面"环境变量"->Administrator 的用户变量,在path中新增安装mingw-w64的路径;验证mingw-w64是否安装配置成功,win+r后输入cmd后输入gcc -v,有WinGW-W64字样安装成功
 5. 按[<使用 VS Code 搭建轻量美观的 C/C++开发环境>](https://www.bilibili.com/video/BV1sW411v7VZ)修改和了解VS Code的配置文件,附件为自用配置文件
 6. 可安装git -- 版本控制,你的代码多版本,方便修改代码,还可一起使用GitHub网站上传下载代码
 7. 开启设置同步，妈妈再也不用担心我的设置了
+
+### git配置
+1. 设置git的user name和email
+```
+如果你是第一次使用，或者还没有配置过的话需要操作一下命令，自行替换相应字段。
+
+git config --global user.name "yourname"
+git config --global user.email  "youremail"
+```
+
+2. 检查是否存在SSH Key
+```
+cd ~/.ssh
+ls
+或者
+ll
+//看是否存在 id_rsa 和 id_rsa.pub文件，如果存在，说明已经有SSH Key
+```
+如果没有SSH Key，则需要先生成一下
+```
+ssh-keygen -t rsa -C "youremail"
+```
+执行之后继续执行以下命令来获取SSH Key
+```
+cd ~/.ssh
+ls
+或者
+ll
+//看是否存在 id_rsa 和 id_rsa.pub文件，如果存在，说明已经有SSH Key
+```
+
+3. 获取SSH Key
+```
+cat id_rsa.pub
+//拷贝秘钥 ssh-rsa开头
+```
+
+4. GitHub添加SSH Key
+```
+GitHub点击用户头像，选择setting
+新建一个SSH Key
+取个名字，把之前拷贝的秘钥复制进去，添加就好啦。
+```
+
+5. 验证和修改
+测试是否成功配置SSH Key
+```
+ssh -T git@github.com
+//运行结果出现类似如下
+//Hi yourname! You've successfully authenticated, but GitHub does not provide shell access.
+
+之前已经是https的链接，现在想要用SSH提交怎么办？
+
+直接修改项目目录下 .git文件夹下的config文件，将地址修改一下就好了
+```
 
 ---
 
@@ -117,14 +171,12 @@
 ---
 
 ### 备注
-+ [vscode+cmake实战系列】环境搭建与配置](https://www.bilibili.com/video/BV1iH4y157aq)
 + [使用 VS Code 搭建轻量美观的 C/C++开发环境](https://www.bilibili.com/video/BV1sW411v7VZ)
 + [VSCode安装，配置，编译运行C++(详细整理)](https://www.jianshu.com/p/febbf1e975b6)
 + [郝斌C语言自学教程](https://www.bilibili.com/video/BV1os411h77o?p=1)
 + [C 语言教程 | 菜鸟教程](https://www.runoob.com/cprogramming/c-tutorial.html)
-+ [登入Github、Git本地上传、Github客户端及Visual Studio Code上传教程](https://blog.csdn.net/qq_29493173/article/details/113092656)
-+ [Git分支管理策略](https://www.ruanyifeng.com/blog/2012/07/git.html)
++ [GitHub如何配置SSH Key](https://blog.csdn.net/u013778905/article/details/83501204)
 
 ---
 
-2025年2月28号22点33分
+创于:2021年1月10号12点00分
