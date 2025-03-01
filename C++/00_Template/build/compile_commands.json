@@ -1,8 +1,0 @@
-[
-{
-  "directory": "C:/Data/Codes/VS-Code/Practice/VS-Code-C++/00_Template/build",
-  "command": "d:\\Works\\mingw64\\bin\\g++.exe  @CMakeFiles/Template.dir/includes_CXX.rsp -g -std=gnu++11 -o CMakeFiles\\Template.dir\\src\\hello.cpp.obj -c C:\\Data\\Codes\\VS-Code\\Practice\\VS-Code-C++\\00_Template\\src\\hello.cpp",
-  "file": "C:/Data/Codes/VS-Code/Practice/VS-Code-C++/00_Template/src/hello.cpp",
-  "output": "CMakeFiles/Template.dir/src/hello.cpp.obj"
-}
-]

@@ -1,3 +1,0 @@
-C:/Data/Codes/VS-Code/Practice/VS-Code-C++/00_Template/build/CMakeFiles/Template.dir
-C:/Data/Codes/VS-Code/Practice/VS-Code-C++/00_Template/build/CMakeFiles/edit_cache.dir
-C:/Data/Codes/VS-Code/Practice/VS-Code-C++/00_Template/build/CMakeFiles/rebuild_cache.dir
