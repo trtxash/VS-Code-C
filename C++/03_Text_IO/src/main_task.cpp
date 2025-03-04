@@ -9,6 +9,18 @@
 #include <iostream>
 #include <limits>
 #include <cctype>
+#include <vector>
+
+// cctype功能
+// 判断字符是否属于特定类别（如字母、数字等）。
+// isalpha(c) // 是否为字母 (a-z, A-Z)
+// isdigit(c) // 是否为数字 (0-9)
+// isalnum(c) // 是否为字母或数字
+// isspace(c) // 是否为空白字符（空格、换行符、制表符等）
+// islower(c) // 是否小写字母
+// isupper(c) // 是否大写字母
+// tolower(c)  // 转小写（若原为大写）
+// toupper(c)  // 转大写（若原为小写）
 
 using namespace std;
 
@@ -21,12 +33,67 @@ int main()
 
     while (1)
     {
+        int temp = 0;
+        string str_task1;
+        char ch_task1 = 0;
+        vector<float> vec_task2;
+
         cout << "Enter task number: ";
         if (IntNumberDateInput(task_num, 1, 9))
         {
             switch (task_num) // switch语句里不能定义变量，因分支共用变量
             {
             case 1:
+                cout << "Enter a string, terminated by '@' " << endl;
+                cin >> str_task1;
+                for (int i = 0; i < str_task1.length(); i++) // check '@'
+                {
+                    if (str_task1[i] == '@')
+                    {
+                        temp = 0;
+                        break;
+                    }
+                    else
+                    {
+                        temp = 1;
+                    }
+                }
+                if (temp == 1)
+                {
+                    cout << "The string does not contain '@' " << endl;
+                }
+                else // 有@
+                {
+                    while (str_task1[temp] != '@')
+                    {
+                        ch_task1 = str_task1[temp++];
+                        if (isdigit(ch_task1))
+                        {
+                        }
+                        else if (isalpha(ch_task1)) // 字母就大小写颠倒输出
+                        {
+                            if (islower(ch_task1)) // 小写就转大写
+                            {
+                                ch_task1 = toupper(ch_task1);
+                            }
+                            else
+                            {
+                                ch_task1 = tolower(ch_task1);
+                            }
+                            cout << ch_task1;
+                        }
+                        else if (isspace(ch_task1))
+                        {
+                            cout << " ";
+                        }
+                        else
+                        {
+                            cout << ch_task1;
+                        }
+                    }
+                    cout << endl;
+                }
+                temp = ch_task1 = 0;
                 break;
             case 2:
                 break;
@@ -60,8 +127,6 @@ int main()
 // 输入验证可以封装成函数
 bool IntNumberDateInput(int &value, int min, int max)
 {
-    cin >> value;
-    isdigit(cin.peek()); // 检查输入流是否为数字
     if (!(cin >> value))
     {
         // 处理类型错误...

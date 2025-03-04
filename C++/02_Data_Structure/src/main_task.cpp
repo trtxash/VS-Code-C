@@ -13,6 +13,36 @@
 #include <array>
 using namespace std;
 
+// vecotr
+// vector<int> vec;                    // 创建一个空的 int 类型 vector
+// vector<int> vec2(10);               // 创建一个包含 10 个元素的 vector，默认值为 0
+// vector<int> vec3(10, 5);            // 创建一个包含 10 个元素的 vector，每个元素初始化为 5
+// vector<int> vec4 = {1, 2, 3, 4, 5}; // 使用初始化列表创建 vector
+
+// vec.push_back(10);               // 在 vector 末尾添加元素 10
+// vec.insert(vec.begin() + 2, 20); // 在索引 2 的位置插入元素 20
+
+// int first = vec[0];       // 通过下标访问元素
+// int second = vec.at(1);   // 通过 at() 函数访问元素，会进行边界检查
+// int last = vec.back();    // 访问最后一个元素
+// int first2 = vec.front(); // 访问第一个元素
+
+// vec.pop_back();             // 删除最后一个元素
+// vec.erase(vec.begin() + 2); // 删除索引 2 的元素
+// vec.clear();                // 清空 vector 中的所有元素
+
+// int size = vec.size();         // 获取 vector 中元素的数量
+// int capacity = vec.capacity(); // 获取 vector 的容量（可以存储的元素数量）
+// bool isEmpty = vec.empty();    // 判断 vector 是否为空
+
+// vec.resize(15);      // 将 vector 的大小调整为 15，新元素默认值为 0
+// vec.resize(20, 100); // 将 vector 的大小调整为 20，新元素初始化为 100
+
+// vec5.swap(vec6); // 交换 vec5 和 vec6 的内容
+
+// vec.assign(5, 10); // 将 vector 的内容替换为 5 个值为 10 的元素
+// vec.reserve(100);  // 预分配 100 个元素的空间，避免频繁重新分配内存
+
 struct CandyBar
 {
     string brand;
