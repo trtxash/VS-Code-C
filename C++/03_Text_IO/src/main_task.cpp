@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <limits>
+#include <cctype>
 
 using namespace std;
 
@@ -59,6 +60,8 @@ int main()
 // 输入验证可以封装成函数
 bool IntNumberDateInput(int &value, int min, int max)
 {
+    cin >> value;
+    isdigit(cin.peek()); // 检查输入流是否为数字
     if (!(cin >> value))
     {
         // 处理类型错误...

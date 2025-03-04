@@ -211,7 +211,7 @@ int main()
 // 输入验证可以封装成函数
 bool IntNumberDateInput(int &value, int min, int max)
 {
-    if (!(cin >> value))
+    if (!(cin >> value)) // cin返回的是std::istream&，即 cin 本身的引用,为空则说明输入类型错误
     {
         // 处理类型错误...
         cout << "Invalid task number format. Please enter a valid task number." << endl;
