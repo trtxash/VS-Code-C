@@ -1,6 +1,6 @@
 /**
  * @file	Basic C++ Program
- * @brief   C++ Primer Plus Ch.1
+ * @brief   C++ Primer Plus Ch.2
  * @author 	trtxash
  * @version 0.0.1
  * @date 	2025年3月1号18点54分
