@@ -27,8 +27,17 @@
 using namespace std;
 
 bool IntNumberDateInput(int &value, int min, int max);
+bool IntNumberDateInput(int &&value, int min, int max);
+//&&表示这是一个右值引用（rvalue reference）。右值引用主要用于支持移动语义和完美转发。右值引用可以绑定到一个临时对象（右值），而左值引用（int &value）则只能绑定到一个非临时对象（左值）。
 bool FloatNumberDateInput(float &value, float min, float max);
 
+/**
+ * @brief	对函数简要描述
+ * @param 	参数说明，以’:’作为参数结束标志；
+ * @arg		参数里面可选择参量列举，对于可数情况可进行参量列举，同样以’:’作为参数结束标志；
+ * @note  	注释，配合brief一起使用可以达到很好的注释效果；
+ * @retval	返回值说明。
+ */
 int main()
 {
     int task_num = 0;
@@ -227,6 +236,31 @@ int main()
 
 // 输入验证可以封装成函数
 bool IntNumberDateInput(int &value, int min, int max)
+{
+    if (!(cin >> value))
+    {
+        // 处理类型错误...
+        cout << "Invalid task number format. Please enter a valid task number." << endl;
+        cin.clear();                                         // 必须先清除错误状态
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 表示流的最大可能长度（通常是2^63-1）彻底地清除输入缓冲区的残留内容,不同系统的输入缓冲区最大值可能不同，使用标准库方法无需硬编码数值}
+        return false;
+    }
+    if (value < min || value > max)
+    {
+        // 处理范围错误...
+        cout << "Invalid task number range. Please enter a valid task number." << endl;
+        cin.clear();                                         // 必须先清除错误状态
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 表示流的最大可能长度（通常是2^63-1）彻底地清除输入缓冲区的残留内容,不同系统的输入缓冲区最大值可能不同，使用标准库方法无需硬编码数值}
+        return false;
+    }
+    // 读取成功，清空缓冲区,防止getline()读取到换行符
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 表示流的最大可能长度（通常是2^63-1）彻底地清除输入缓冲区的残留内容,不同系统的输入缓冲区最大值可能不同，使用标准库方法无需硬编码数值}
+
+    return true;
+}
+
+// 输入验证可以封装成函数
+bool IntNumberDateInput(int &&value, int min, int max)
 {
     if (!(cin >> value))
     {
