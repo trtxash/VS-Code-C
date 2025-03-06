@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.0.0) # Minimum version of CMake required
+cmake_minimum_required(VERSION 3.28.3) # Minimum version of CMake required
 project(
     Template # Name of the project
     VERSION 0.0.1 # Version number of the project
