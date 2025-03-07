@@ -2,8 +2,8 @@
  * @file	Basic C++ Program
  * @brief   C++ Primer Plus Ch.7~ch.8
  * @author 	TRTX-gamer
- * @version 0.0.1
- * @date 	2025年3月7号1点42分
+ * @version 0.0.2
+ * @date 	2025年3月7号15点52分
  */
 
 #include <iostream>
