@@ -3,7 +3,7 @@
  * @brief   C++ Primer Plus Ch.7~ch.8
  * @author 	TRTX-gamer
  * @version 0.0.2
- * @date 	2025年3月7号15点52分
+ * @date 	2025年3月9号0点2分
  */
 
 #include <iostream>
