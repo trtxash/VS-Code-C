@@ -84,8 +84,25 @@ struct CandyBar // task2
 
 CandyBar candy1 = {}; // task2
 
-template <typename AnyType>
-bool NumberInput(AnyType &value, AnyType min, AnyType max);
+// 结构为：
+// -模板
+// --隐式实例化
+// --显示实例化
+// -显示特化
+
+// 隐式实例化：
+// 指利用模板，编译器自动生成，完成实例化（也就要有AnyType，否则如果有显式，则不能作为显示的模板）
+template <typename Type1, typename Type2, typename Type3> // 变量可以多个
+bool NumberInput(Type1 &value, Type2 min, Type3 max);     // 模板，一组template一组声明
+// 显式实例化
+// 指利用模板，手动声明，完成实例化（也就不能AnyTypepe）
+// 建议用显示实例化，因：当隐式实例化时，编译器可能无法确定模板参数，导致编译错误，且
+template bool NumberInput(int &value, float min, float max);
+template bool NumberInput<float>(float &value, float min, float max); // 指定模板类型为 float，即 Type1、Type2 和 Type3 都会被替换为 float 类型。
+
+// 显示特化：
+template <>                                          // 显示特化，指定模板类型为 int
+bool NumberInput<int>(int &value, int min, int max); // 指定模板类型为 int (因为函数后面有"<int>")
 
 void task1(string *s, int mode);
 void task2(CandyBar &candy, const char *ch = "Millenium Munch", const double d = 2.85, const int i = 350);
@@ -270,8 +287,8 @@ void task1(string *s, int mode)
  * @retval	True    成功
  * @retval	False   失败
  */
-template <typename AnyType>
-bool NumberInput(AnyType &value, AnyType min, AnyType max)
+template <typename Type1, typename Type2, typename Type3>
+bool NumberInput(Type1 &value, Type2 min, Type3 max)
 {
     if (!(cin >> value))
     {
@@ -304,3 +321,37 @@ bool NumberInput(AnyType &value, AnyType min, AnyType max)
 
     return true;
 }
+
+// bool NumberInput(int &value, int min, int max)
+// {
+//     if (!(cin >> value))
+//     {
+//         // 处理类型错误...
+//         cout << "Invalid task number format. Please enter a valid task number." << endl;
+//         cin.clear();              // 必须先清除错误状态
+//         while (cin.get() != '\n') // 删除没有用的输入
+//             continue;             // get rid of bad input
+//         return false;
+//     }
+//     if (min == 0 && max == 0) // 不进行范围检查
+//     {
+//     }
+//     else
+//     {
+//         if (value < min || value > max)
+//         {
+//             // 处理范围错误...
+//             cout << "Invalid task number range. Please enter a valid task number." << endl;
+//             cin.clear();              // 必须先清除错误状态
+//             while (cin.get() != '\n') // 删除没有用的输入
+//                 continue;             // get rid of bad input
+//             return false;
+//         }
+//     }
+//     while (cin.get() != '\n') // 删除没有用的输入
+//         continue;             // get rid of bad input
+//     // // 读取成功，清空缓冲区,防止getline()读取到换行符
+//     // cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 表示流的最大可能长度（通常是2^63-1）彻底地清除输入缓冲区的残留内容,不同系统的输入缓冲区最大值可能不同，使用标准库方法无需硬编码数值}
+
+//     return true;
+// }
