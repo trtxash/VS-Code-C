@@ -112,12 +112,12 @@ int main()
                 Student student1; // 默认初始化
                 // std::cout << "student1: " << student1.name << " " << student1.age << std::endl; //报错，类的私有成员不能直接访问
                 student1.introduce();
-                Student student2 = {"Tom", 20}; // 自定义初始化
+                Student student2 = {"Tom", 20}; // 自定义列表初始化
                 student2.introduce();
 
                 Student_1 student3;
                 student1.introduce();
-                Student_1 student4 = {"Tom1", 20};
+                Student_1 student4{"Tom1", 20}; // 另一种写法
                 student2.introduce();
             }
             break;
