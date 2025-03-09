@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <vector>
+#include "study.h"
 
 // vecotr功能
 // 应避免长期持有vector元素的引用，或在可能改变容量的操作后及时更新引用。
@@ -75,11 +76,11 @@ bool NumberInput(Type1 &value, Type2 min, Type3 max);     // 模板，一组temp
 // 指利用模板，手动声明，完成实例化（也就不能AnyTypepe）
 // 建议用显示实例化，因：当隐式实例化时，编译器可能无法确定模板参数，导致编译错误，且
 template bool NumberInput(int &value, float min, float max);
-template bool NumberInput<float>(float &value, float min, float max); // 指定模板类型为 float，即 Type1、Type2 和 Type3 都会被替换为 float 类型。
+template bool NumberInput<float, float, float>(float &value, float min, float max); // 指定模板类型为 float，即 Type1、Type2 和 Type3 都会被替换为 float 类型。
 
 // 显示特化：
-template <>                                          // 显示特化，指定模板类型为 int
-bool NumberInput<int>(int &value, int min, int max); // 指定模板类型为 int (因为函数后面有"<int>")
+template <>                                                    // 显示特化，指定模板类型为 int
+bool NumberInput<int, int, int>(int &value, int min, int max); // 指定模板类型为 int (因为函数后面有"<int>")
 
 /**
  * @brief	对函数简要描述
@@ -108,6 +109,16 @@ int main()
             {
             case 1:
             {
+                Student student1; // 默认初始化
+                // std::cout << "student1: " << student1.name << " " << student1.age << std::endl; //报错，类的私有成员不能直接访问
+                student1.introduce();
+                Student student2 = {"Tom", 20}; // 自定义初始化
+                student2.introduce();
+
+                Student_1 student3;
+                student1.introduce();
+                Student_1 student4 = {"Tom1", 20};
+                student2.introduce();
             }
             break;
             case 2:
@@ -169,16 +180,18 @@ int main()
 template <typename Type1, typename Type2, typename Type3>
 bool NumberInput(Type1 &value, Type2 min, Type3 max)
 {
+    // 处理类型错误...
     if (!(std::cin >> value))
     {
-        // 处理类型错误...
-        std::cout << "Invalid task number format. Please enter a valid task number." << endl;
+
+        std::cout << "Invalid task number format. Please enter a valid task number." << std::endl;
         std::cin.clear();              // 必须先清除错误状态
         while (std::cin.get() != '\n') // 删除没有用的输入
             continue;                  // get rid of bad input
         return false;
     }
-    if (min == 0 && max == 0) // 不进行范围检查
+    // 不进行范围检查
+    if (min == 0 && max == 0)
     {
     }
     else
@@ -186,15 +199,62 @@ bool NumberInput(Type1 &value, Type2 min, Type3 max)
         if (value < min || value > max)
         {
             // 处理范围错误...
-            std::cout << "Invalid task number range. Please enter a valid task number." << endl;
+            std::cout << "Invalid task number range. Please enter a valid task number." << std::endl;
             std::cin.clear();              // 必须先清除错误状态
             while (std::cin.get() != '\n') // 删除没有用的输入
                 continue;                  // get rid of bad input
             return false;
         }
     }
-    while (std::cin.get() != '\n') // 删除没有用的输入
-        continue;                  // get rid of bad input
+    // 删除没有用的输入
+    while (std::cin.get() != '\n')
+        continue; // get rid of bad input
+
+    return true;
+}
+
+/**
+ * @brief	模板函数，读入输入的数据，并进行类型和范围检查，返回是否成功
+ * @param 	value 	输入数据
+ * @param 	min 	最小值
+ * @param 	max 	最大值,都为0则不进行范围检查
+ * @arg
+ * @note  	只能处理整数类型
+ * @retval	True    成功
+ * @retval	False   失败
+ */
+template <> // 模板和函数重载不一样，删去这两行变为函数重载会报错
+bool NumberInput<int, int, int>(int &value, int min, int max)
+{
+    // 处理类型错误...
+    if (!(std::cin >> value))
+    {
+
+        std::cout << "Invalid task number format. Please enter a valid task number." << std::endl;
+        std::cin.clear();              // 必须先清除错误状态
+        while (std::cin.get() != '\n') // 删除没有用的输入
+            continue;                  // get rid of bad input
+        return false;
+    }
+    // 不进行范围检查
+    if (min == 0 && max == 0)
+    {
+    }
+    else
+    {
+        if (value < min || value > max)
+        {
+            // 处理范围错误...
+            std::cout << "Invalid task number range. Please enter a valid task number." << std::endl;
+            std::cin.clear();              // 必须先清除错误状态
+            while (std::cin.get() != '\n') // 删除没有用的输入
+                continue;                  // get rid of bad input
+            return false;
+        }
+    }
+    // 删除没有用的输入
+    while (std::cin.get() != '\n')
+        continue; // get rid of bad input
 
     return true;
 }
