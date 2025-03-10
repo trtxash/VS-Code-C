@@ -9,6 +9,7 @@
 #include <iostream>
 #include <vector>
 #include "study.h"
+#include "stack.h"
 
 // vecotr功能
 // 应避免长期持有vector元素的引用，或在可能改变容量的操作后及时更新引用。
@@ -124,6 +125,9 @@ int main()
             break;
             case 2:
             {
+                Stack<int> stack1; // 默认初始化
+                stack1.push(10);
+                stack1.push(20);
             }
             break;
             case 3:
