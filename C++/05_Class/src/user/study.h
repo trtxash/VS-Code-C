@@ -2,7 +2,7 @@
  * @file	study.h
  * @brief   This file is test file for C++ class.
  * @author  TRTX-gamer
- * @version 1.00
+ * @version 0.0.1
  * @date    2025-03-09-00:02
  */
 #ifndef __STUDY_H__
@@ -25,6 +25,11 @@ public: // 成员函数（方法）
     void introduce()
     {
         std::cout << "我叫" << name_val << "，今年" << age_val << "岁" << std::endl;
+    }
+
+    void test_this()
+    {
+        std::cout << "this指针:" << this << std::endl;
     }
 
     // 所有不修改对象状态的getter方法都应该声明为const，这能提高代码的：

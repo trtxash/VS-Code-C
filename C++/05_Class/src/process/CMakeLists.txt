@@ -7,10 +7,16 @@ add_library(${PROJECT_NAME}
 
 target_include_directories(${PROJECT_NAME}
     PUBLIC
-    ${Study_Dir}
+    ${User_Dir}
+    ${Temptest_Dir}
+
+    # ${Third_Past_Dir}
 )
 
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
-    study
+    user
+    temptest
+
+    # third_past
 )

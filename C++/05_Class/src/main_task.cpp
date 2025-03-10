@@ -114,6 +114,7 @@ int main()
                 student1.introduce();
                 Student student2 = {"Tom", 20}; // 自定义列表初始化
                 student2.introduce();
+                student1.test_this();
 
                 Student_1 student3;
                 student1.introduce();

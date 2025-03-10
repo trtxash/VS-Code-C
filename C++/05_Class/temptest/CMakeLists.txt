@@ -1,6 +1,6 @@
-project(study)
+project(temptest)
 
 add_library(${PROJECT_NAME}
     SHARED
-    study.cpp
+    temptest.cpp
 )
