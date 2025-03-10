@@ -2,8 +2,8 @@
  * @file	Basic C++ Program
  * @brief   C++ Primer Plus Ch.9~ch.10
  * @author 	TRTX-gamer
- * @version 0.0.1
- * @date 	2025-03-09-00:02
+ * @version 0.0.2
+ * @date 	2025-03-10-07:13
  */
 
 #include <iostream>
