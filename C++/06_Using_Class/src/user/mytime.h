@@ -25,20 +25,6 @@ private:
 
     /*---------------------------自动调整日期---------------------------*/
 
-    // 自动调整时间 （进位到day）
-    inline void normalizeTime()
-    {
-        unsigned int minute_temp, hour_temp;
-
-        minute_temp = minute_ + second_ / 60;
-        second_ %= 60; // 计算秒
-        hour_temp = hour_ + minute_temp / 60;
-        minute_ = minute_temp % 60; // 计算分
-        hour_ = hour_temp % 24;     // 计算时
-
-        addDays(hour_temp / 24); // 进位到day
-    }
-
     // 闰年判断
     inline bool isLeapYear() const
     {
@@ -74,8 +60,7 @@ private:
     // 自动调整日期（处理时间，处理跨月、跨年）
     inline void normalize()
     {
-        normalizeTime(); // 处理时间
-        normalizeDate(); // 处理日期
+        addSeconds(0);
     }
 
 public:
@@ -95,41 +80,6 @@ public:
             std::cout << "Invalid second" << std::endl;
 
         normalize();
-    }
-
-    /*---------------------------时间加法---------------------------*/
-
-    void addSeconds(unsigned int s)
-    {
-        unsigned long temp = second_ + s;
-        second_ = temp % 60;            // 取余
-        temp /= 60;                     // 多少进位
-        addMinutes((unsigned int)temp); // 进位
-    }
-
-    void addMinutes(unsigned int m)
-    {
-        unsigned long temp = minute_ + m;
-        minute_ = temp % 60;          // 取余
-        temp /= 60;                   // 多少进位
-        addHours((unsigned int)temp); // 进位
-    }
-
-    void addHours(unsigned int h)
-    {
-        unsigned long temp = hour_ + h;
-        hour_ = temp % 24;           // 取余
-        temp /= 24;                  // 多少进位
-        addDays((unsigned int)temp); // 进位
-    }
-
-    void addDays(unsigned int d)
-    {
-        normalizeDate(); // 为防止溢出,这里先处理本身day_溢出,此时day_小于32
-        day_ += d / 2;   // 处理d的一半
-        normalizeDate();
-        day_ += d - (d / 2); // 处理d的另一半
-        normalizeDate();
     }
 
     /*---------------------------获取或设置日期时间信息--------------------*/
@@ -169,6 +119,41 @@ public:
         month_ = m;
         day_ = d;
         normalize();
+    }
+
+    /*---------------------------时间运算---------------------------*/
+
+    void addSeconds(unsigned int s)
+    {
+        unsigned long temp = second_ + s;
+        second_ = temp % 60;            // 取余
+        temp /= 60;                     // 多少进位
+        addMinutes((unsigned int)temp); // 进位
+    }
+
+    void addMinutes(unsigned int m)
+    {
+        unsigned long temp = minute_ + m;
+        minute_ = temp % 60;          // 取余
+        temp /= 60;                   // 多少进位
+        addHours((unsigned int)temp); // 进位
+    }
+
+    void addHours(unsigned int h)
+    {
+        unsigned long temp = hour_ + h;
+        hour_ = temp % 24;           // 取余
+        temp /= 24;                  // 多少进位
+        addDays((unsigned int)temp); // 进位
+    }
+
+    void addDays(unsigned int d)
+    {
+        normalizeDate(); // 为防止溢出,这里先处理本身day_溢出,此时day_小于32
+        day_ += d / 2;   // 处理d的一半
+        normalizeDate();
+        day_ += d - (d / 2); // 处理d的另一半
+        normalizeDate();
     }
 
     /*---------------------------比较运算符等扩展功能---------------------------*/
