@@ -47,11 +47,11 @@ public:
     }
 
     // 赋值运算符
-    Stack &operator=(const Stack &other)
+    Stack &operator=(const Stack &other) //& 表示赋值运算符返回的是一个引用
     {
         if (this != &other)
         {
-            Stack tmp(other);
+            Stack tmp(other); // 创建一个 Stack 类的对象 tmp，并且使用 other 对象作为参数调用拷贝构造函数来初始化 tmp
             swap(tmp);
         }
         return *this;

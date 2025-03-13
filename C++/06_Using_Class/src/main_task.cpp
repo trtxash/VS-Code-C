@@ -59,14 +59,30 @@ int main()
             {
             case 1:
             {
-                DateTime my_time{2020, 1, 1, 0, 0, 0};
+                std ::cout << "my_time: ";
+                DateTime my_time{2020, 2, 25, 0, 0, 0};
                 my_time.show();
+                std ::cout << " set to: ";
                 my_time.setTime(23, 59, 59);
                 my_time.show();
+                std ::cout << " +30 seconds: ";
                 my_time.addSeconds(30);
                 my_time.show();
-                my_time.addSeconds(666666);
+                std ::cout << " +7 days: ";
+                my_time.addSeconds(3600 * 24 * 7); // +24小时
                 my_time.show();
+
+                std ::cout << "my_time: ";
+                my_time.show();
+                std ::cout << "my_time2: ";
+                DateTime my_time2{0, 1, 1, 0, 0, 31};
+                my_time2.show();
+                std ::cout << " my_time2 = my_time2.operator+(my_time): ";
+                my_time2 = my_time2.operator+(my_time);
+                my_time2.show();
+                std ::cout << " my_time2 = my_time2 + my_time: ";
+                my_time2 = my_time2 + my_time;
+                my_time2.show();
             }
             break;
             case 2:

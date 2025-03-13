@@ -22,16 +22,31 @@ private:
 
     // 月份天数表（非闰年）
     static constexpr unsigned char daysInMonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    // static constexpr用于类的静态成员，这样每个类的实例共享同一份数据，且数据在编译时初始化，无需在类外定义。
 
-    // 闰年判断
-    bool isLeapYear() const
+    /*---------------------------自动调整日期---------------------------*/
+
+    // 自动调整时间 （进位到day）
+    inline void normalizeTime()
     {
-        return (year_ % 4 == 0 && year_ % 100 != 0) || (year_ % 400 == 0);
+        unsigned int minute_temp, hour_temp;
+
+        minute_temp = minute_ + second_ / 60;
+        second_ %= 60; // 计算秒
+        hour_temp = hour_ + minute_temp / 60;
+        minute_ = minute_temp % 60; // 计算分
+        hour_ = hour_temp % 24;     // 计算时
+
+        addDays(hour_temp / 24); // 进位到day
     }
 
-    // 自动调整日期（处理跨月、跨年）
-    void normalizeDate()
+    // 闰年判断
+    inline bool isLeapYear() const
+    {
+        return (year_ % 4 == 0 && year_ % 100 != 0) || (year_ % 400 == 0); // 闰年是4的倍数但不是100的倍数，或者是400的倍数，2月有29天
+    }
+
+    // 自动调整日期（处理跨年）
+    inline void normalizeDate()
     {
         // 处理闰年二月
         unsigned char febDays = isLeapYear() ? 29 : 28;
@@ -48,7 +63,7 @@ private:
                 if (year_ == 0XFFFFFFFF)
                 {
                     year_ = 0;
-                    throw std::invalid_argument("year overflow");
+                    std::cout << "year overflow" << std::endl;
                 }
                 else
                     year_++;
@@ -56,43 +71,11 @@ private:
         }
     }
 
-    // 自动调整时间（处理进位）
-    void normalizeTime()
+    // 自动调整日期（处理时间，处理跨月、跨年）
+    inline void normalize()
     {
-        // while (second_ >= 60) // 处理秒
-        // {
-        //     second_ -= 60;
-        //     minute_++;
-        //     while (minute_ >= 60) // 处理分钟
-        //     {
-        //         minute_ -= 60;
-        //         hour_++;
-        //         while (hour_ >= 24) // 处理小时
-        //         {
-        //             hour_ -= 24;
-        //             day_++;
-        //             normalizeDate();
-        //         }
-        //     }
-        // }
-        if (second_ >= 60)
-        {
-            minute_ += second_ / 60;
-            second_ %= 60;
-        }
-
-        if (minute_ >= 60)
-        {
-            hour_ += minute_ / 60;
-            minute_ %= 60;
-        }
-
-        if (hour_ >= 24)
-        {
-            day_ += hour_ / 24;
-            hour_ %= 24;
-            normalizeDate();
-        }
+        normalizeTime(); // 处理时间
+        normalizeDate(); // 处理日期
     }
 
 public:
@@ -111,58 +94,46 @@ public:
         if (second_ >= 60)
             std::cout << "Invalid second" << std::endl;
 
-        normalizeDate();
-        normalizeTime();
+        normalize();
     }
 
-    // 时间加法
+    /*---------------------------时间加法---------------------------*/
+
     void addSeconds(unsigned int s)
     {
-        while (s >= 60) // 处理秒
-        {
-            s -= 60;
-            minute_++;
-            normalizeTime();
-        }
-        second_ += s;
-        normalizeTime();
+        unsigned long temp = second_ + s;
+        second_ = temp % 60;            // 取余
+        temp /= 60;                     // 多少进位
+        addMinutes((unsigned int)temp); // 进位
     }
 
     void addMinutes(unsigned int m)
     {
-        while (m >= 60)
-        {
-            m -= 60;
-            hour_++;
-            normalizeTime();
-        }
-        minute_ += m;
-        normalizeTime();
+        unsigned long temp = minute_ + m;
+        minute_ = temp % 60;          // 取余
+        temp /= 60;                   // 多少进位
+        addHours((unsigned int)temp); // 进位
     }
 
     void addHours(unsigned int h)
     {
-        while (h >= 24)
-        {
-            h -= 24;
-            day_++;
-            normalizeTime();
-        }
-        hour_ += h;
-        normalizeTime();
+        unsigned long temp = hour_ + h;
+        hour_ = temp % 24;           // 取余
+        temp /= 24;                  // 多少进位
+        addDays((unsigned int)temp); // 进位
     }
 
     void addDays(unsigned int d)
     {
-        while (d)
-        {
-            day_++;
-            d--;
-            normalizeDate();
-        }
+        normalizeDate(); // 为防止溢出,这里先处理本身day_溢出,此时day_小于32
+        day_ += d / 2;   // 处理d的一半
+        normalizeDate();
+        day_ += d - (d / 2); // 处理d的另一半
+        normalizeDate();
     }
 
-    // 获取日期时间信息
+    /*---------------------------获取或设置日期时间信息--------------------*/
+
     unsigned int year() const { return year_; }
     unsigned char month() const { return month_; }
     unsigned char day() const { return day_; }
@@ -188,7 +159,7 @@ public:
         hour_ = h;
         minute_ = min;
         second_ = s;
-        normalizeTime();
+        normalize();
     }
 
     // 设置日期（会自动规范化）
@@ -197,10 +168,21 @@ public:
         year_ = y;
         month_ = m;
         day_ = d;
-        normalizeDate();
+        normalize();
     }
 
-    // 比较运算符等扩展功能...
+    /*---------------------------比较运算符等扩展功能---------------------------*/
+
+    // 运算符重载
+    // 只能用在加时间
+    DateTime operator+(const DateTime &dt)
+    {
+        DateTime temp = *this;
+        temp.addSeconds(dt.second_);
+        temp.addMinutes(dt.minute_);
+        temp.addHours(dt.hour_);
+        return temp;
+    }
 };
 
 // 类外定义 (必须添加)
