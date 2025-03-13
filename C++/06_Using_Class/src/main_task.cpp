@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <vector>
+#include "mytime.h"
 
 struct DataVectorStruct
 {
@@ -51,7 +52,6 @@ int main()
 
     while (1)
     {
-        // int mode_num = 0;
         std::cout << "Enter task number: ";
         if (NumberInput(task_num, 1, 9))
         {
@@ -59,6 +59,14 @@ int main()
             {
             case 1:
             {
+                DateTime my_time{2020, 1, 1, 0, 0, 0};
+                my_time.show();
+                my_time.setTime(23, 59, 59);
+                my_time.show();
+                my_time.addSeconds(30);
+                my_time.show();
+                my_time.addSeconds(666666);
+                my_time.show();
             }
             break;
             case 2:
