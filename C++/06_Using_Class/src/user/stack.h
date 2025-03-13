@@ -3,7 +3,7 @@
  * @brief   栈类模板实现，用链表，利用堆模拟实现栈
  * @author 	TRTX-gamer
  * @version 0.0.1
- * @date 	2025-03-10-16:58
+ * @date 	2025-03-10 16:58
  */
 #ifndef STACK_H
 #define STACK_H

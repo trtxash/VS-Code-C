@@ -3,7 +3,7 @@
  * @brief   C++ Primer Plus Ch.10~ch.11
  * @author 	TRTX-gamer
  * @version 0.0.1
- * @date 	2025-03-10-07:13
+ * @date 	2025-03-10 07:13
  */
 
 #include <iostream>

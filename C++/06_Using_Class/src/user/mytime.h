@@ -2,8 +2,8 @@
  * @file	mytime.h
  * @brief   时间类模板实现，支持常见的时间操作
  * @author 	TRTX-gamer
- * @version 0.0.1
- * @date 	2025-03-10-16:58
+ * @version 0.0.2
+ * @date 	2025-03-14 6:56
  */
 #ifndef MYTIME_H
 #define MYTIME_H
