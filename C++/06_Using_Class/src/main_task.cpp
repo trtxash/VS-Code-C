@@ -87,6 +87,21 @@ int main()
             break;
             case 2:
             {
+                int nian = 0;
+                double benjing = 0, jingqian = benjing, nianxing = 15.0 * 2.0 / 3, tonghuo = 0.02, jiazhi = benjing;
+                for (benjing = 0.0001; benjing < 100; benjing += 10)
+                {
+                    jiazhi = jingqian = benjing;
+                    std::cout << benjing << "w元; " << std::endl;
+                    for (nian = 0; nian < 30; nian++) // 50年
+                    {
+                        double temp = jingqian;
+                        jingqian += nianxing;
+                        jiazhi = (jiazhi + nianxing * (jiazhi / temp)) * (1 - tonghuo);
+                        std::cout << nian << " year: " << jingqian << "w元; " << jiazhi << "w价值；" << std::endl;
+                    }
+                    std::cout << std::endl;
+                }
             }
             break;
             case 3:
