@@ -59,30 +59,52 @@ int main()
             {
             case 1:
             {
-                std ::cout << "my_time: ";
-                DateTime my_time{2020, 2, 25, 0, 0, 0};
+                std::cout << "my_time: ";
+                mytime::DateTime my_time{2020, 2, 25, 0, 0, 0};
                 my_time.show();
-                std ::cout << " set to: ";
+                std::cout << " set to: ";
                 my_time.setTime(23, 59, 59);
                 my_time.show();
-                std ::cout << " +30 seconds: ";
+                std::cout << " +30 seconds: ";
                 my_time.addSeconds(30);
                 my_time.show();
-                std ::cout << " +7 days: ";
+                std::cout << " +7 days: ";
                 my_time.addSeconds(3600 * 24 * 7); // +24小时
                 my_time.show();
+                std::cout << std::endl;
 
-                std ::cout << "my_time: ";
+                std::cout << "my_time: ";
                 my_time.show();
-                std ::cout << "my_time2: ";
-                DateTime my_time2{0, 1, 1, 0, 0, 31};
+                std::cout << "my_time2: ";
+                mytime::DateTime my_time2{0, 1, 1, 0, 0, 31};
                 my_time2.show();
-                std ::cout << " my_time2 = my_time2.operator+(my_time): ";
+                std::cout << " my_time2 = my_time2.operator+(my_time): ";
                 my_time2 = my_time2.operator+(my_time);
                 my_time2.show();
-                std ::cout << " my_time2 = my_time2 + my_time: ";
+                std::cout << " my_time2 = my_time2 + my_time: ";
                 my_time2 = my_time2 + my_time;
                 my_time2.show();
+                std::cout << " my_time2 += my_time: ";
+                my_time2 += my_time;
+                my_time2.show();
+                std::cout << std::endl;
+
+                std::cout << "my_time2 = my_time2 * 2: ";
+                my_time2 = my_time2 * 2;
+                my_time2.show();
+                std::cout << "my_time2 *= 2: ";
+                my_time2 *= 2;
+                my_time2.show();
+                std::cout << "my_time2 = 2 * my_time2: ";
+                my_time2 = 2 * my_time2;
+                my_time2.show();
+                std::cout << std::endl;
+
+                std::cout << "my_time2 >> std::cout: ";
+                my_time2 >> std::cout;
+                std::cout << std::endl;
+
+                std::cout << "my_time2 << std::cout: " << my_time2 << "\r\nfinished" << std::endl;
             }
             break;
             case 2:
@@ -106,12 +128,10 @@ int main()
             break;
             case 3:
             {
-                //
             }
             break;
             case 4:
             {
-                //
             }
             break;
             case 5:
