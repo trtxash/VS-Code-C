@@ -16,21 +16,22 @@
 #define MYSTL_EXPORT
 #endif
 
-class MYSTL_EXPORT StringBad {
+class MYSTL_EXPORT StringBad
+{
 private:
-  char *str; // 堆内存指针
-  int len;   // 字符串长度
-             // static int num_strings;
+    char *str; // 堆内存指针
+    int len;   // 字符串长度
+               // static int num_strings;
 public:
-  StringBad(); // 默认构造函数
-  StringBad(const char *s);
-  ~StringBad();
+    StringBad(); // 默认构造函数
+    StringBad(const char *s);
+    ~StringBad();
 
-  /* 重载运算符 */
+    /* 重载运算符 */
 
-  /* 友元函数 */
-  friend MYSTL_EXPORT std::ostream &operator<<(std::ostream &os,
-                                               const StringBad &s);
+    /* 友元函数 */
+    friend MYSTL_EXPORT std::ostream &operator<<(std::ostream &os,
+                                                 const StringBad &s);
 };
 
 #endif
