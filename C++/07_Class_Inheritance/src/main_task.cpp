@@ -63,6 +63,7 @@ int main()
             }
             break;
             case 2: {
+                std::cout << "Enter a string: ";
             }
             break;
             case 3: {
