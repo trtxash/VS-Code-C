@@ -8,6 +8,7 @@ add_library(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME}
     PUBLIC
     ${User_Dir}
+    ${Mystl_Dir}
 
     # ${Temptest_Dir}
     # ${Third_Past_Dir}
@@ -15,6 +16,7 @@ target_include_directories(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
+    mystl
 
     # user
     # temptest

@@ -2,6 +2,7 @@ project(main_task)
 
 add_subdirectory(process)
 add_subdirectory(user)
+add_subdirectory(mystl)
 
 add_executable(${PROJECT_NAME} main_task.cpp)
 
