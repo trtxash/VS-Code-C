@@ -1,11 +1,11 @@
 /**
- * @file	Basic C++ Program
- * @brief   C++ Primer Plus Ch.12~ch.13
- * @author 	TRTX-gamer
+ * @file	Basic Program
+ * @brief   
+ * @author 	trtxash
  * @version 0.0.1
- * @date 	2025-03-16 18:43
+ * @date 	2025-05-19 13:11
  */
-// #include <iostream>
+#include <stdio.h>
 
 /**
  * @brief	对函数简要描述
@@ -17,6 +17,7 @@
  */
 int main()
 {
+    printf("Hello, World!\n");
     while (1)
     {
     }
