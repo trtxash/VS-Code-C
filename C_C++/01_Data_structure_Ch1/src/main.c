@@ -1,11 +1,14 @@
 /**
  * @file	Data structure ch1
- * @brief   
+ * @brief
  * @author 	trtxash
  * @version 0.0.1
  * @date 	2025-05-19 13:11
  */
+#include "time.h"
 #include <stdio.h>
+
+clock_t start, stop;
 
 /**
  * @brief	对函数简要描述
@@ -18,6 +21,10 @@
 int main()
 {
     printf("Hello, World!\n");
+    printf("%ld\n", CLK_TCK);
+    start = clock();
+    stop = clock();
+    printf("Time taken: %f seconds\n", (double)(stop - start) / CLK_TCK);
     while (1)
     {
     }
