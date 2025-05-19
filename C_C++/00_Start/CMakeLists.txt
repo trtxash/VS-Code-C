@@ -29,6 +29,7 @@ message("Build type: " ${CMAKE_BUILD_TYPE})
 enable_language(CXX C ASM)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin) # Set the output directory for the executable files
+set(Include_Dir ${CMAKE_SOURCE_DIR}/inc)
 set(User_Dir ${CMAKE_SOURCE_DIR}/src/user)
 set(Third_Past_Dir ${CMAKE_SOURCE_DIR}/third_past)
 
